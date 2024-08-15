@@ -8,8 +8,12 @@ import { ExperienceObjectType, ProjectObjectType } from "@/Shared/Types/types";
 import Experience from "@/Scenes/Experience";
 import Project from "@/Scenes/Projects";
 import Contact from "@/Scenes/Contact ";
-
+import { useState } from "react";
+import { ExperienceItem, ProjectItem } from '@/Shared/Types/types';
 export default function Home() {
+
+  const [experienceObject, setExperienceObject] = useState<ExperienceItem[]>([])
+  const [projectObject, setProjectObject] = useState<ProjectItem[]>([])
 
   const ExperienceObject: ExperienceObjectType[] = [
     {
@@ -97,8 +101,6 @@ export default function Home() {
     icons.sqlIcon,
     icons.awsDynamoDbIcon,
   ]
-
-
 
   return (
     <>

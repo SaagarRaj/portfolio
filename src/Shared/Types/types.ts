@@ -25,3 +25,19 @@ export type ProjectObjectType = {
   liveLink?: string;
   DemoVideo?: string;
 };
+
+export interface ProjectItem {
+  title: string;
+  description?: string;
+  techUsed?: string[];
+  projectLink?: string;
+  liveLink?: string;
+  DemoVideo?: string;
+}
+
+export interface ExperienceItem {
+  name: string;
+  title: string;
+  date: string;
+  description: string;
+}
