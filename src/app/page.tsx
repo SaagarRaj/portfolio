@@ -8,34 +8,31 @@ import { ExperienceObjectType, ProjectObjectType } from "@/Shared/Types/types";
 import Experience from "@/Scenes/Experience";
 import Project from "@/Scenes/Projects";
 import Contact from "@/Scenes/Contact ";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ExperienceItem, ProjectItem } from '@/Shared/Types/types';
+import { getAllExperience } from "@/Aws/db";
 export default function Home() {
 
   const [experienceObject, setExperienceObject] = useState<ExperienceItem[]>([])
   const [projectObject, setProjectObject] = useState<ProjectItem[]>([])
 
-  const ExperienceObject: ExperienceObjectType[] = [
-    {
-      name: "California State University, Long Beach",
-      title: "Teaching assistant",
-      Date: "Aug,2024 - present",
-      description: `As a Teaching Assistant for the CECS 274 Data Structures course, my duties include delivering lectures, preparing and organizing lab sessions, holding office hours to assist students, and evaluating their assignments and exams. I am also responsible for designing and grading coursework, proctoring exams, and maintaining accurate student records. I am dedicated to supporting students’ understanding of data structures and enhancing their overall learning experience.`
-    },
+  useEffect(() => {
+    const fetchExperience = async () => {
+      try {
+        const data = await getAllExperience();
+        const sortedData = data.sort((a, b) => {
+          const startDateA = new Date(a.Date.split(' - ')[0]);
+          const startDateB = new Date(b.Date.split(' - ')[0]);
 
-    {
-      name: 'Cognizant Technological Solutions',
-      title: "Programmer Analyst Trainee",
-      Date: "Aug,2021 - May,2022",
-      description: `Throughout my professional journey, I've had the privilege of collaborating within dynamic teams to tackle real-world challenges using Google Cloud Platform services. Whether it was assisting a client in setting up Google Cloud Pub/Sub or customising virtual machine instances to meet project requirements, I've consistently delivered solutions that align with client expectations. My commitment to effective communication has been instrumental, as I've adeptly translated technical jargon into understandable terms for clients and stakeholders, ensuring smooth project progress and issue resolution. Additionally, I've authored comprehensive documentation to streamline processes and share best practices within the team.`,
-    },
-    {
-      name: "National Chin-yi University of Technology, Taiwan",
-      title: "Externship",
-      Date: "Aug,2018 - Jul,2018",
-      description: `In my journey, I've had the opportunity to delve into diverse projects, showcasing my passion for innovation and problem-solving. From developing a weather broadcasting system that seamlessly integrates hardware and software components to constructing IoT applications using the Lego EV3 development kit, each endeavour has been a learning experience. I've leveraged tools like Arduino Uno and DTH11 sensor modules to capture weather data with precision and efficiency, achieving a remarkable accuracy rate. Moreover, my foray into Android app development has equipped me with a fundamental understanding of the Android lifecycle, as evidenced by the creation of a calculator app using JAVA, XML, and MVVM architecture. Notably, my achievements extend beyond individual projects, as evidenced by my First Prize win in the Lego Robot Competition at TEEP@AsiaPlus. There, I engineered a robot capable of navigating obstacles and following a designated path with remarkable speed and accuracy, a testament to my dedication and expertise in the field.`,
-    }
-  ];
+          return startDateB.getTime() - startDateA.getTime();
+        })
+        setExperienceObject(sortedData)
+      } catch (err) {
+        console.log("Failed to fetch experience data:", err)
+      }
+    };
+    fetchExperience();
+  }, [])
 
   const ProjectObject: ProjectObjectType[] = [
     {
@@ -154,7 +151,7 @@ export default function Home() {
       <About icons={iconList} />
 
       {/* Experience */}
-      <Experience ExpObj={ExperienceObject} />
+      <Experience ExpObj={experienceObject} />
 
       {/* Project */}
       <Project content={ProjectObject} />

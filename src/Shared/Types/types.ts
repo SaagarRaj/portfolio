@@ -38,6 +38,6 @@ export interface ProjectItem {
 export interface ExperienceItem {
   name: string;
   title: string;
-  date: string;
+  Date: string;
   description: string;
 }
