@@ -1,5 +1,4 @@
 import SectionTitle from '@/Shared/Components/SectionTitle'
-import React, { use } from 'react'
 import { useForm } from "react-hook-form"
 require('dotenv').config();
 type Props = {}
