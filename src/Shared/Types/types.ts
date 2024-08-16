@@ -28,9 +28,9 @@ export type ProjectObjectType = {
 
 export interface ProjectItem {
   title: string;
-  description?: string;
-  techUsed?: string[];
-  projectLink?: string;
+  description: string;
+  techUsed: string[];
+  projectLink: string;
   liveLink?: string;
   DemoVideo?: string;
 }
