@@ -4,7 +4,6 @@ import Image, { StaticImageData } from "next/image";
 import icons from "@/Assets/icons";
 import DevImage from "@/Assets/icons/icons/19362653-removebg.png"
 import About from "@/Scenes/About";
-import { ExperienceObjectType, ProjectObjectType } from "@/Shared/Types/types";
 import Experience from "@/Scenes/Experience";
 import Project from "@/Scenes/Projects";
 import Contact from "@/Scenes/Contact ";
@@ -79,7 +78,7 @@ export default function Home() {
               <p className=" text-[3rem] md:text-[3.5rem] p-2 pt-0">Saagar Raj Tiwari</p>
               <p>A Full-stack Developer</p>
               <button className="border border-black rounded-md p-2 mt-6 hover:bg-black hover:text-custom-yellow">
-                <a href="https://drive.google.com/file/d/1lwC-dU9YoSAVF-ezG7n3qLDp_pjFXYvA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a>
+                <a href={process.env.NEXT_PUBLIC_RESUME_LINK} target="_blank" rel="noopener noreferrer">Resume</a>
               </button>
               <div className="flex items-center justify-center mt-4 gap-4">
                 <a href="https://github.com/SaagarRaj" target="_blank" rel="noopener noreferrer">

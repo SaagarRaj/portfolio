@@ -26,7 +26,7 @@ export const Navbar = (props: Props) => {
                 <AnchorLink href="#experience" offset={20} className={NavItemsStyleClass}> <span className="text-custom-yellow font-robotoMono ">02. </span>Experience </AnchorLink>
                 <AnchorLink href="#project" offset={20} className={NavItemsStyleClass}> <span className="text-custom-yellow font-robotoMono ">03. </span>Project </AnchorLink>
                 <AnchorLink href="#contact" offset={20} className={NavItemsStyleClass}> <span className="text-custom-yellow font-robotoMono ">04. </span> Contact </AnchorLink>
-                <p className={`${NavItemsStyleClass}`}> <a href="https://drive.google.com/file/d/1lwC-dU9YoSAVF-ezG7n3qLDp_pjFXYvA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a></p>
+                <p className={`${NavItemsStyleClass}`}> <a href={process.env.NEXT_PUBLIC_RESUME_LINK} target="_blank" rel="noopener noreferrer">Resume</a></p>
             </div>
 
             <div className="flex md:hidden items-center justify-end  w-[95%]">
