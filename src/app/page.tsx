@@ -10,6 +10,7 @@ import Contact from "@/Scenes/Contact ";
 import { useEffect, useState } from "react";
 import { ExperienceItem, ProjectItem } from '@/Shared/Types/types';
 import { getAllExperience, getAllProject } from "@/Aws/db";
+import { Analytics } from "@vercel/analytics/react"
 export default function Home() {
 
   const [experienceObject, setExperienceObject] = useState<ExperienceItem[]>([])
@@ -65,6 +66,7 @@ export default function Home() {
 
   return (
     <>
+      <Analytics />
       {/* Navbar */}
       <Navbar />
 

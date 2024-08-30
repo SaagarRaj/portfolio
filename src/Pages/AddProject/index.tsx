@@ -108,7 +108,7 @@ const AddProject = (props: Props) => {
                             <button
                                 type="button"
                                 onClick={handleAddSkill}
-                                className='ml-2 px-4 py-2 bg-custom-blue text-white rounded-md shadow-sm'
+                                className='ml-2 px-4 py-1 border-2 rounded-md shadow-sm'
                             >
                                 Add
                             </button>
@@ -123,6 +123,8 @@ const AddProject = (props: Props) => {
                                 </span>
                             ))}
                         </div>
+
+                        <button className='p-2 mt-2 hover:border-2 hover:shadow-xl '>Submit</button>
                     </div>
                     <div className='w-[50%] h-full p-4'>
                         <ProjectCard
