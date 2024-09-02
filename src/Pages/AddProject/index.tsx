@@ -107,21 +107,6 @@ const AddProject = (props: Props) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <label className={lableStyle}> Skills </label>
-                    {/* <div className='flex items-center'>
-                        <input
-                            className={inputStyle}
-                            onChange={handleInputChange}
-                            onKeyDown={handleKeyDown}
-                            placeholder="Add a skill and press Enter"
-                        />
-                        <button
-                            type="button"
-                            onClick={handleAddSkill}
-                            className='ml-2 px-4 py-1 border-2 rounded-md shadow-sm'
-                        >
-                            Add
-                        </button>
-                    </div> */}
                     <select
                         className={inputStyle}
                         onChange={handleInputChange}

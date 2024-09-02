@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    {
+      "source": "/old-path",
+      "destination": "/new-path"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/old-url",
+      "destination": "/new-url",
+      "permanent": true
+    }
+  ]
+}

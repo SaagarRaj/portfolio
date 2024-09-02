@@ -49,7 +49,7 @@ const AddExperience = (props: Props) => {
                     <label className={lableStyle}> Date </label>
                     <input className={inputStyle} onChange={(e) => { setDate(e.target.value) }} />
                     <label className={lableStyle}> Description </label>
-                    <textarea rows={8} cols={50} className={inputStyle} onChange={(e) => { setDescription(e.target.value) }} />
+                    <textarea rows={5} cols={50} className={inputStyle} onChange={(e) => { setDescription(e.target.value) }} />
                     <button className='p-2 mt-2 hover:border-2 hover:shadow-xl '>Submit</button>
                 </div>
                 <div className='w-[50%] h-full p-4'>
